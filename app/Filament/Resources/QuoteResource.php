@@ -21,7 +21,7 @@ class QuoteResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('content')
-                    ->maxLength(50),
+                    ->maxLength(100),
 
                 Forms\Components\TextInput::make('said_by')
                     ->maxLength(20),
