@@ -13,7 +13,7 @@ use Filament\Tables;
 class QuoteResource extends Resource
 {
     protected static ?string $model = Quote::class;
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-bottom';
     protected static ?string $recordTitleAttribute = 'uuid';
 
     public static function form(Form $form): Form
@@ -21,9 +21,11 @@ class QuoteResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('content')
+                    ->required()
                     ->maxLength(150),
 
                 Forms\Components\TextInput::make('said_by')
+                    ->required()
                     ->maxLength(100),
             ]);
     }
