@@ -13,7 +13,7 @@ use Filament\Tables;
 class QuoteResource extends Resource
 {
     protected static ?string $model = Quote::class;
-    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-bottom';
+    protected static ?string $navigationIcon = 'heroicon-o-at-symbol';
     protected static ?string $recordTitleAttribute = 'uuid';
 
     public static function form(Form $form): Form
