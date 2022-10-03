@@ -4,7 +4,7 @@ import "../css/app.css";
 import "./bootstrap/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-const pages = await import.meta.glob<DefineComponent>('./pages/**/*.vue');
+const pages = import.meta.glob<DefineComponent>('./pages/**/*.vue');
 
 const resolveNameComponent = (name: string) => {
     for (const path in pages) {
