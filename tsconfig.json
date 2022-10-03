@@ -1,0 +1,19 @@
+
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "strict": true,
+        "jsx": "preserve",
+        "experimentalDecorators": true,
+        "types": ["vite/client"],
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true
+    },
+    "exclude": ["node_modules", "dist"],
+    "include": [
+        "resources/js/**/*.ts",
+        "resources/js/**/*.tsx"
+    ]
+}
