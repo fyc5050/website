@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import RandomQuote from "./RandomQuote.vue";
+import RandomQuote from "~/js/components/Layout/RandomQuote.vue";
 
 const navigationItems = [
     {

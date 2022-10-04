@@ -9,7 +9,11 @@
         "experimentalDecorators": true,
         "types": ["vite/client"],
         "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "baseUrl": "./resources",
+        "paths": {
+            "~/*": ["*"]
+        }
     },
     "exclude": ["node_modules", "dist"],
     "include": [

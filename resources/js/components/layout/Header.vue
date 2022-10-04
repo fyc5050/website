@@ -104,8 +104,8 @@
 
 <script lang="ts" setup>
 import { Popover, PopoverPanel, PopoverButton } from "@headlessui/vue";
-import DropdownMenu from "../dropdown/DropdownMenu.vue";
-import DropdownItem from "../dropdown/DropdownItem.vue";
-import Container from "../Container.vue";
-import logoUrl from "../../../images/logo.png";
+import DropdownMenu from "~/js/components/dropdown/DropdownMenu.vue";
+import DropdownItem from "~/js/components/dropdown/DropdownItem.vue";
+import Container from "~/js/components/Container.vue";
+import logoUrl from "~/images/logo.png";
 </script>

@@ -1,10 +1,10 @@
 import { createApp, DefineComponent, h } from "vue";
 import { createInertiaApp, Link } from "@inertiajs/inertia-vue3";
-import "../css/app.css";
-import "./bootstrap/fontawesome";
+import "~/css/app.css";
+import "~/js/bootstrap/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-const pages = import.meta.glob<DefineComponent>('./pages/**/*.vue');
+const pages = import.meta.glob<DefineComponent>('~/js/pages/**/*.vue');
 
 const resolveNameComponent = (name: string) => {
     for (const path in pages) {

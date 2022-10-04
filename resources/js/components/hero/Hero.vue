@@ -22,6 +22,6 @@
 </template>
 
 <script lang="ts" setup>
-import Container from "../Container.vue";
-import Coinflip from "./Coinflip.vue";
+import Container from "~/js/components/Container.vue";
+import Coinflip from "~/js/components/hero/Coinflip.vue";
 </script>

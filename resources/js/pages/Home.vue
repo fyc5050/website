@@ -5,6 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-import Layout from "../components/layout/Layout.vue";
-import Hero from "../components/hero/Hero.vue";
+import Layout from "~/js/components/layout/Layout.vue";
+import Hero from "~/js/components/hero/Hero.vue";
 </script>

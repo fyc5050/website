@@ -9,8 +9,8 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import headsUrl from "../../../images/heads.png";
-import tailsUrl from "../../../images/tails.png";
+import headsUrl from "~/images/heads.png";
+import tailsUrl from "~/images/tails.png";
 
 type CoinSide = 'heads' | 'tails';
 
