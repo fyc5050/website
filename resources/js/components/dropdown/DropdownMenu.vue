@@ -14,7 +14,8 @@
         >
             <div
                 v-if="open"
-                class="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                class="absolute z-10 mt-2 w-56 rounded-md bg-gray-800 focus:outline-none"
+                :class="alignClass"
                 role="menu"
                 tabindex="-1"
             >
@@ -25,11 +26,20 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, ref } from "vue";
+import { computed, defineProps, ref } from "vue";
+
+export type DropdownMenuAlign = 'left' | 'right';
 
 const props = defineProps<{
     startOpen?: boolean;
+    menuAlign?: DropdownMenuAlign;
 }>();
+
+const alignClass = computed(() => {
+    const align = props.menuAlign ?? 'left';
+
+    return align === 'left' ? 'left-0 origin-top-left' : 'right-0 origin-top-right';
+});
 
 const open = ref(props.startOpen ?? false);
 const toggle = () => open.value = !open.value;

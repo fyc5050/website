@@ -1,5 +1,5 @@
 import { createApp, DefineComponent, h } from "vue";
-import { createInertiaApp } from "@inertiajs/inertia-vue3";
+import { createInertiaApp, Link } from "@inertiajs/inertia-vue3";
 import "../css/app.css";
 import "./bootstrap/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -21,6 +21,7 @@ createInertiaApp({
         createApp({ render: () => h(app, props)})
             .use(plugin)
             .component('font-awesome-icon', FontAwesomeIcon)
+            .component('inertia-link', Link)
             .mount(el);
     },
     resolve: resolveNameComponent,
