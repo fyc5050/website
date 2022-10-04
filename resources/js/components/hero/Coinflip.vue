@@ -1,7 +1,7 @@
 <template>
     <button @click="flip" class="animate-hover">
         <img
-            :src="current === 'heads' ? 'https://5050fyc.vercel.app/images/50centkop.png' : 'https://5050fyc.vercel.app/images/50centmunt.png'"
+            :src="current === 'heads' ? headsUrl : tailsUrl"
             :alt="current === 'heads' ? 'Heads' : 'Tails'"
         />
     </button>
@@ -9,6 +9,8 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import headsUrl from "../../../images/heads.png";
+import tailsUrl from "../../../images/tails.png";
 
 type CoinSide = 'heads' | 'tails';
 
