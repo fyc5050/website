@@ -14,7 +14,7 @@ import tailsUrl from "~/images/tails.png";
 
 type CoinSide = 'heads' | 'tails';
 
-const FLIP_TIME = 4000;
+const FLIP_TIME = 2000;
 const FLIPS = 8;
 
 const isFlipping = ref(false);
