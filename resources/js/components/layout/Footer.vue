@@ -25,7 +25,7 @@ import RandomQuote from "~/js/components/layout/RandomQuote.vue";
 const navigationItems = [
     {
         name: 'Instagram',
-        href: 'https://instagram.com/5050-fyc',
+        href: 'https://www.instagram.com/fyc5050/',
         icon: 'fab fa-instagram',
     },
     {
