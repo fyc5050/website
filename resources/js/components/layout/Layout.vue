@@ -11,6 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-import Footer from "~/js/components/Layout/Footer.vue";
-import Header from "~/js/components/Layout/Header.vue";
+import Footer from "~/js/components/layout/Footer.vue";
+import Header from "~/js/components/layout/Header.vue";
 </script>
