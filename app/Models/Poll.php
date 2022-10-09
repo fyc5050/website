@@ -12,12 +12,17 @@ class Poll extends Model
     use HasFactory, HasUuidColumn;
 
     protected $fillable = [
-        'name', 'is_locked'
+        'name', 'locks_at'
     ];
 
     protected $casts = [
-        'is_locked' => 'boolean',
+        'locks_at' => 'timestamp',
     ];
+
+    public function isLocked(): bool
+    {
+        return $this->locks_at <= now();
+    }
 
     public function answers(): HasMany
     {

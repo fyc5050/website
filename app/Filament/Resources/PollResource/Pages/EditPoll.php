@@ -20,7 +20,7 @@ class EditPoll extends EditRecord
     protected function getHeaderWidgets(): array
     {
         return [
-            PollResource\Widgets\PollSubmissionsChart::class,
+            PollResource\Widgets\SubmissionsPieChart::class,
         ];
     }
 }

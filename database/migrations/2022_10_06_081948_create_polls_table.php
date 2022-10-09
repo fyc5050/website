@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->uuid();
             $table->string('name');
-            $table->boolean('is_locked')->default(false);
+            $table->timestamp('locks_at')->nullable();
             $table->timestamps();
         });
     }

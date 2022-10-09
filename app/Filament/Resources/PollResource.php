@@ -4,20 +4,18 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PollResource\Pages;
 use App\Filament\Resources\PollResource\RelationManagers;
-use App\Filament\Resources\PollResource\Widgets\PollSubmissionsChart;
+use App\Filament\Resources\PollResource\Widgets\SubmissionsPieChart;
 use App\Models\Poll;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class PollResource extends Resource
 {
     protected static ?string $model = Poll::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
@@ -28,7 +26,9 @@ class PollResource extends Resource
                     ->required()
                     ->maxLength(100),
 
-                Forms\Components\Checkbox::make('is_locked'),
+                Forms\Components\DateTimePicker::make('locks_at')
+                    ->nullable()
+                    ->after(now()),
             ]);
     }
 
@@ -37,13 +37,17 @@ class PollResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\BooleanColumn::make('is_locked'),
+
+                Tables\Columns\BooleanColumn::make('is_locked')
+                    ->true(static fn (Poll $record) => $record->isLocked())
             ])
             ->filters([
-                //
+                Tables\Filters\Filter::make('is_locked')
+                    ->query(fn (Builder $query) => $query->whereDate('locks_at', '<=', now()))
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -54,6 +58,13 @@ class PollResource extends Resource
     {
         return [
             RelationManagers\AnswersRelationManager::class,
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            SubmissionsPieChart::class,
         ];
     }
 
