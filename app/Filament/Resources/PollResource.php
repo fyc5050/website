@@ -39,7 +39,11 @@ class PollResource extends Resource
                 Tables\Columns\TextColumn::make('name'),
 
                 Tables\Columns\BooleanColumn::make('is_locked')
-                    ->true(static fn (Poll $record) => $record->isLocked())
+                    ->label('Locked')
+                    ->getStateUsing(static fn (Poll $record) => $record->isLocked()),
+
+                Tables\Columns\BooleanColumn::make('is_published')
+                    ->label('Published'),
             ])
             ->filters([
                 Tables\Filters\Filter::make('is_locked')
