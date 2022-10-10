@@ -11,6 +11,10 @@ class Quote extends Model
     use HasFactory, HasUuidColumn;
 
     protected $fillable = [
-        'content', 'said_by',
+        'content', 'said_by', 'is_hidden',
+    ];
+
+    protected $casts = [
+        'is_hidden' => 'boolean',
     ];
 }

@@ -9,6 +9,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class QuoteResource extends Resource
 {
@@ -37,10 +38,24 @@ class QuoteResource extends Resource
                 Tables\Columns\TextColumn::make('uuid'),
                 Tables\Columns\TextColumn::make('content'),
                 Tables\Columns\TextColumn::make('said_by'),
+                Tables\Columns\BooleanColumn::make('is_hidden')
+                    ->label('Hidden'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+
+                Tables\Actions\Action::make('hide')
+                    ->hidden(fn (Quote $record) => $record->is_hidden)
+                    ->action(fn (Quote $record) => $record->update(['is_hidden' => true])),
+
+                Tables\Actions\Action::make('display')
+                    ->hidden(fn (Quote $record) => !$record->is_hidden)
+                    ->action(fn (Quote $record) => $record->update(['is_hidden' => false])),
+            ])
+            ->filters([
+                Tables\Filters\Filter::make('is_hidden')
+                    ->query(fn (Builder $query) => $query->where('is_hidden', true)),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
