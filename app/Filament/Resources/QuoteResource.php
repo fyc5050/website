@@ -55,7 +55,7 @@ class QuoteResource extends Resource
             ])
             ->filters([
                 Tables\Filters\Filter::make('is_hidden')
-                    ->query(fn (Builder $query) => $query->where('is_hidden', true)),
+                    ->query(fn (Builder $query) => $query->scopes('hidden')),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

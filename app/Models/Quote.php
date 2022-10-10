@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasUuidColumn;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,4 +18,14 @@ class Quote extends Model
     protected $casts = [
         'is_hidden' => 'boolean',
     ];
+
+    public function scopeHidden(Builder $query): void
+    {
+        $query->where('is_hidden', true);
+    }
+
+    public function scopeShown(Builder $query): void
+    {
+        $query->where('is_hidden', false);
+    }
 }

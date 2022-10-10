@@ -40,7 +40,7 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'quotes' => fn () => QuoteResource::collection(
-                Quote::where('is_hidden', false)->get()
+                Quote::shown()->get()
             ),
         ]);
     }
