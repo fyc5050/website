@@ -51,7 +51,7 @@ const names = computed(() => {
         names.push(quote.said_by);
     }
 
-    return names;
+    return names.sort((a, b) => a.localeCompare(b));
 });
 
 const wasCorrect = ref<boolean | null>(null);
