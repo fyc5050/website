@@ -28,10 +28,5 @@ const navigationItems = [
         href: 'https://www.instagram.com/fyc5050/',
         icon: 'fab fa-instagram',
     },
-    {
-        name: 'Twitter',
-        href: 'https://twitter.com',
-        icon: 'fab fa-twitter',
-    },
 ];
 </script>
