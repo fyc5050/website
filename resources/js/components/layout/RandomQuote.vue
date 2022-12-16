@@ -16,7 +16,7 @@ type Quote = {
 };
 
 const quotes = computed<Quote[]>(() => {
-    return usePage().props.value.quotes as unknown as Quote[];
+    return usePage().props.value.global.quotes as unknown as Quote[];
 });
 
 const pickRandomQuote = () => quotes.value[Math.floor(Math.random() * quotes.value.length)];

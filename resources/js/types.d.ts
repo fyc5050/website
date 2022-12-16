@@ -1,7 +1,7 @@
 export {};
 
 declare global {
-    interface UserResource {
+    interface QuoteQuizUserResource {
         uuid: string;
         name: string;
     }

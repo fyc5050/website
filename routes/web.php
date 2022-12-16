@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QuoteQuizController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)
     ->name('home');
+
+Route::get('/quote-quiz', [QuoteQuizController::class, 'index'])
+    ->name('quote-quiz.index');
