@@ -35,11 +35,12 @@ class QuoteResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('uuid'),
                 Tables\Columns\TextColumn::make('content'),
                 Tables\Columns\TextColumn::make('said_by'),
                 Tables\Columns\BooleanColumn::make('is_hidden')
                     ->label('Hidden'),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
