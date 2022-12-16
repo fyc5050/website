@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <Container>
+        <Container class="my-10">
             <div class="rounded-xl bg-gray-800 p-5" v-if="quote">
                 <div class="text-2xl italic text-white text-center py-4">
                     &ldquo;{{ quote.content }}&rdquo;
