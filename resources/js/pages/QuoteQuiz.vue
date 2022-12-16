@@ -11,7 +11,7 @@
                         @click="attempt(name)"
                         v-for="name in names"
                         class="px-3 py-2 rounded-full text-gray-200 transition"
-                        :class="{'bg-gray-600 hover:bg-gray-500': selectedAnswer !== name || wasCorrect === null, 'bg-green-500': selectedAnswer === name && wasCorrect, 'bg-red-500': selectedAnswer === name && wasCorrect === false}"
+                        :class="{'bg-gray-600 hover:bg-gray-500': selectedAnswer === null || selectedAnswer !== name || wasCorrect === null, 'bg-green-500': (selectedAnswer === name && wasCorrect) || (selectedAnswer !== null && quote.said_by === name), 'bg-red-500': selectedAnswer === name && wasCorrect === false}"
                     >
                         {{ name }}
                     </button>
