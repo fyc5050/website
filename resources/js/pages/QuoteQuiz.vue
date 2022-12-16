@@ -43,15 +43,22 @@ const randomQuote = () => {
 onMounted(() => quote.value = randomQuote());
 
 const names = computed(() => {
-    return props.quotes
-        .map(quote => quote.said_by);
+    const names = [];
+
+    for (const quote of props.quotes) {
+        if (names.includes(quote.said_by)) continue;
+
+        names.push(quote.said_by);
+    }
+
+    return names;
 });
 
 const wasCorrect = ref<boolean | null>(null);
 const selectedAnswer = ref<string | null>(null);
 
 const attempt = (name: string) => {
-    if (selectedAnswer !== null) return;
+    if (selectedAnswer.value !== null) return;
 
     wasCorrect.value = quote.value.said_by === name;
     selectedAnswer.value = name;
