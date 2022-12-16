@@ -49,6 +49,13 @@
                         >
                             News
                         </inertia-link>
+
+                        <inertia-link
+                            href="/quote-quiz"
+                            class="text-sm text-gray-300 hover:text-gray-200 hover:bg-gray-800 px-3 py-2 rounded-lg transition"
+                        >
+                            Quote Quiz
+                        </inertia-link>
                     </div>
                 </nav>
             </Container>
