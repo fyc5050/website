@@ -14,7 +14,8 @@ class QuoteQuizController extends Controller
     {
         return inertia('QuoteQuiz', [
             'quotes' => QuoteQuizQuestion::collection(
-                Quote::all()
+                Quote::shown()
+                    ->get()
             ),
         ]);
     }
