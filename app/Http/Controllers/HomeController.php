@@ -11,7 +11,6 @@ class HomeController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param \Illuminate\Http\Request $request
      * @return \Inertia\Response
      */
     public function __invoke(): Response
@@ -19,8 +18,6 @@ class HomeController extends Controller
         return inertia('Home', [
             'zeurMeister' => fn () => ZeurMeisterResource::make(
                 ZeurMeister::current()
-                    ->with('user')
-                    ->first()
             ),
         ]);
     }

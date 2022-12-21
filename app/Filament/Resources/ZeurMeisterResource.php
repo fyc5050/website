@@ -10,7 +10,6 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Validation\Rules\Unique;
 
 class ZeurMeisterResource extends Resource
 {
@@ -24,18 +23,16 @@ class ZeurMeisterResource extends Resource
 
         return $form
             ->schema([
-                Forms\Components\Select::make('user_id')
-                    ->relationship('user', 'name')
-                    ->label('User')
-                    ->options(User::pluck('name', 'id')),
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->maxLength(100),
 
-                // TODO: validation of only one weekly.
+                Forms\Components\DatePicker::make('starts_at')
+                    ->default($date),
 
-                Forms\Components\TextInput::make('week_number')
-                    ->default($date->week),
-
-                Forms\Components\TextInput::make('year_number')
-                    ->default($date->year),
+                Forms\Components\DatePicker::make('ends_at')
+                    ->default($date->addWeek())
+                    ->required(),
             ]);
     }
 
@@ -43,7 +40,7 @@ class ZeurMeisterResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user.name'),
+                Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('week_number'),
                 Tables\Columns\TextColumn::make('year_number'),
             ])
