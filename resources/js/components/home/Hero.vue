@@ -1,8 +1,5 @@
 <template>
     <Container class="mt-16 px-4 sm:mt-24 sm:px-6 relative">
-<!--        <div class="absolute bottom-0 right-0">-->
-<!--        </div>-->
-
         <div class="text-center">
             <h1 class="text-4xl font-display font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
                 50/50
