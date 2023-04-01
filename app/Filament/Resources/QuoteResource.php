@@ -10,12 +10,21 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class QuoteResource extends Resource
 {
     protected static ?string $model = Quote::class;
     protected static ?string $navigationIcon = 'heroicon-o-at-symbol';
-    protected static ?string $recordTitleAttribute = 'uuid';
+
+    public static function getRecordTitle(?Model $record): ?string
+    {
+        return sprintf(
+            '"%s" - %s',
+            Str::limit($record->content, 20), Str::limit($record->said_by, 10)
+        );
+    }
 
     public static function form(Form $form): Form
     {
@@ -37,8 +46,11 @@ class QuoteResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('content'),
                 Tables\Columns\TextColumn::make('said_by'),
-                Tables\Columns\BooleanColumn::make('is_hidden')
+
+                Tables\Columns\IconColumn::make('is_hidden')
+                    ->boolean()
                     ->label('Hidden'),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
             ])
@@ -46,13 +58,11 @@ class QuoteResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
 
-                Tables\Actions\Action::make('hide')
-                    ->hidden(fn (Quote $record) => $record->is_hidden)
-                    ->action(fn (Quote $record) => $record->update(['is_hidden' => true])),
-
-                Tables\Actions\Action::make('display')
-                    ->hidden(fn (Quote $record) => !$record->is_hidden)
-                    ->action(fn (Quote $record) => $record->update(['is_hidden' => false])),
+                Tables\Actions\Action::make('toggle_hidden')
+                    ->label(static function (Quote $record) {
+                        return $record->is_hidden ? 'Display' : 'Hide';
+                    })
+                    ->action(fn (Quote $record) => $record->update(['is_hidden' => !$record->is_hidden])),
             ])
             ->filters([
                 Tables\Filters\Filter::make('is_hidden')
