@@ -25,30 +25,23 @@
                             Home
                         </inertia-link>
 
-                        <DropdownMenu>
-                            <template #toggle="{ toggle }">
-                                <button @click="toggle" class="text-sm text-gray-300 hover:text-gray-200 hover:bg-gray-800 px-3 py-2 rounded-lg transition">
-                                    Committee
+<!--                        <DropdownMenu>-->
+<!--                            <template #toggle="{ toggle }">-->
+<!--                                <button @click="toggle" class="text-sm text-gray-300 hover:text-gray-200 hover:bg-gray-800 px-3 py-2 rounded-lg transition">-->
+<!--                                    Committee-->
 
-                                    <font-awesome-icon icon="fas fa-chevron-down" class="w-4 h-4 inline-flex ml-1"/>
-                                </button>
-                            </template>
+<!--                                    <font-awesome-icon icon="fas fa-chevron-down" class="w-4 h-4 inline-flex ml-1"/>-->
+<!--                                </button>-->
+<!--                            </template>-->
 
-                            <DropdownItem href="/committee/about">
-                                About Us
-                            </DropdownItem>
+<!--                            <DropdownItem href="/committee/about">-->
+<!--                                About Us-->
+<!--                            </DropdownItem>-->
 
-                            <DropdownItem href="/committee/members">
-                                Members
-                            </DropdownItem>
-                        </DropdownMenu>
-
-                        <inertia-link
-                            href="/news"
-                            class="text-sm text-gray-300 hover:text-gray-200 hover:bg-gray-800 px-3 py-2 rounded-lg transition"
-                        >
-                            News
-                        </inertia-link>
+<!--                            <DropdownItem href="/committee/members">-->
+<!--                                Members-->
+<!--                            </DropdownItem>-->
+<!--                        </DropdownMenu>-->
 
                         <inertia-link
                             href="/quote-quiz"
@@ -111,8 +104,8 @@
 
 <script lang="ts" setup>
 import { Popover, PopoverPanel, PopoverButton } from "@headlessui/vue";
-import DropdownMenu from "~/js/components/dropdown/DropdownMenu.vue";
-import DropdownItem from "~/js/components/dropdown/DropdownItem.vue";
+// import DropdownMenu from "~/js/components/dropdown/DropdownMenu.vue";
+// import DropdownItem from "~/js/components/dropdown/DropdownItem.vue";
 import Container from "~/js/components/Container.vue";
 import logoUrl from "~/images/logo.png";
 </script>
