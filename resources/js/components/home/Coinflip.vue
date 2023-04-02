@@ -1,41 +1,25 @@
 <template>
-    <button @click="flip" class="animate-hover">
-        <img
-            :src="current === 'heads' ? headsUrl : tailsUrl"
-            :alt="current === 'heads' ? 'Heads' : 'Tails'"
-        />
+    <button @click="flip" class="coinflip" ref="container">
+        <img class="coinflip-face coinflip-face-tails" :src="tails"/>
+        <img class="coinflip-face coinflip-face-heads" :src="heads"/>
     </button>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import headsUrl from "~/images/heads.png";
-import tailsUrl from "~/images/tails.png";
+import tails from '~/images/tails.png';
+import heads from '~/images/heads.png';
 
-type CoinSide = 'heads' | 'tails';
-
-const FLIP_TIME = 2000;
-const FLIPS = 8;
-
-const isFlipping = ref(false);
-const result = ref<CoinSide | null>(null);
-const current = ref<CoinSide>('heads');
+const container = ref<HTMLButtonElement>();
+const result = ref(false);
 
 const flip = () => {
-    if (isFlipping.value) return;
+    result.value = Math.random() <= 0.5;
 
-    isFlipping.value = true;
-    result.value = Math.random() < 0.5 ? 'heads' : 'tails';
-
-    const interval = setInterval(() => {
-        current.value = current.value === 'heads' ? 'tails' : 'heads';
-    }, FLIP_TIME / FLIPS);
+    container.value.classList.remove('coinflip-result-heads', 'coinflip-result-tails');
 
     setTimeout(() => {
-        isFlipping.value = false;
-        current.value = result.value!;
-
-        clearInterval(interval);
-    }, FLIP_TIME);
+        container.value.classList.add(result ? 'coinflip-result-heads' : 'coinflip-result-tails');
+    }, 100);
 };
 </script>

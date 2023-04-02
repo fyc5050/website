@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes coinflip-tails {
+    from {
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+
+    to {
+        transform: rotate3d(0, 1, 0, 720deg);
+    }
+}
+
+@keyframes coinflip-heads {
+    from {
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+
+    to {
+        transform: rotate3d(0, 1, 0, 900deg);
+    }
+}
+
+.coinflip {
+    @apply relative w-36 h-36 transition;
+
+    transition-duration: 3s;
+    transform-style: preserve-3d;
+    transform: rotate3d(0, 1, 0, 0deg);
+}
+
+.coinflip-result-tails {
+    animation: coinflip-tails 3s ease-out forwards;
+}
+
+.coinflip-result-heads {
+    animation: coinflip-heads 3s ease-out forwards;
+}
+
+.coinflip-face {
+    @apply absolute inset-0 w-full h-full;
+
+    backface-visibility: hidden;
+}
+
+.coinflip-face-tails {
+    @apply z-10;
+
+    transform: rotateY(0deg);
+}
+
+.coinflip-face-heads {
+    @apply z-20;
+
+    transform: rotateY(180deg);
+}
