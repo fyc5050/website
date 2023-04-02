@@ -19,7 +19,7 @@ const flip = () => {
     container.value.classList.remove('coinflip-result-heads', 'coinflip-result-tails');
 
     setTimeout(() => {
-        container.value.classList.add(result ? 'coinflip-result-heads' : 'coinflip-result-tails');
+        container.value.classList.add(result.value ? 'coinflip-result-heads' : 'coinflip-result-tails');
     }, 100);
 };
 </script>
