@@ -34,6 +34,10 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required(),
+
+                Forms\Components\Checkbox::make('is_admin'),
+
+                Forms\Components\Checkbox::make('is_des_manager'),
             ]);
     }
 
