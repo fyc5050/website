@@ -9,4 +9,9 @@ declare global {
     interface ZeurMeisterResource {
         name: string;
     }
+
+    interface DesCountResource {
+        name: string;
+        des_count: number;
+    }
 }

@@ -7,6 +7,7 @@ use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasName;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
@@ -15,23 +16,18 @@ class User extends Authenticatable implements FilamentUser, HasName
 {
     use HasUuidColumn, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'des_count', 'is_admin', 'is_des_manager',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password', 'remember_token',
+    ];
+
+    protected $casts = [
+        'is_admin' => 'boolean',
+        'is_des_manager' => 'boolean',
+        'des_count' => 'integer',
     ];
 
     public function password(): Attribute
@@ -39,13 +35,23 @@ class User extends Authenticatable implements FilamentUser, HasName
         return Attribute::set(fn ($value) => Hash::make($value));
     }
 
+    public function desCount(): Attribute
+    {
+        return Attribute::set(fn ($value) => max(-1, $value));
+    }
+
     public function canAccessFilament(): bool
     {
-        return true;
+        return $this->is_admin;
     }
 
     public function getFilamentName(): string
     {
         return $this->name;
+    }
+
+    public function desMutations(): HasMany
+    {
+        return $this->hasMany(DesMutation::class);
     }
 }

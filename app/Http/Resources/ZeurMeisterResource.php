@@ -18,7 +18,7 @@ class ZeurMeisterResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'name' => $this->resource ? $this->resource->name : null,
+            'name' => $this->resource->name,
         ];
     }
 }
