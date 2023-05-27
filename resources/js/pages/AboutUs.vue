@@ -19,16 +19,16 @@
                     </template>
                 </Member>
 
+                <Member name="Willem Schinck" function="Secretary" :des-count="props.desCounts['Willem Schinck'] ?? 0" image="https://images.gewis.nl/c3/fbbfa02b57305da091e882deb000316154dede.jpeg?w=1920&h=1278&fm=webp&q=80&s=4026bbc5e6ea8c3922f13725261c8050">
+                    <template #text>
+                        Hello, I am Willem, but most people call me WUM, the secretary of 50/50. That means I write all the emails and if nobody is late I need to make the minutes. I am originally from Limburg, but unfortunately I lost my accent so I speak mostly ABN. I now live in Nuenen with my girlfriend Femke and my best friend Lars. My music preference is Rammstein and other musicians who wear black. Even though I am the oldest, my height doesn’t represent this. I make a lot of jokes about Hiske’s accent and I feel really bad about these. So if you hear me make these kind of jokes, please tell me to stop. I hope to see you at the weekly borrels! Goodbye
+                    </template>
+                </Member>
+
                 <Member name="Stijn Schroijen" function="Treasurer" :des-count="props.desCounts['Stijn Schroijen'] ?? 0" reverse-layout image="https://images.gewis.nl/97/75fa62938a6255781a1744be618d9fdee9250c.jpeg?w=1920&h=1278&fm=webp&q=80&s=156eac93b6c234ac7764cd18844aace6">
                     <template #text>
                         I am Stijn Schroijen. I study computer science. My role in the FYC is treasurer. I have to admit, this is a really hard job for me as a non-mathematician but weirdly enough they trust me in doing so. On top of that I’m also the official ‘schronselmeister’ a.k.a. foodmeister. This sounds very cool, but I’m basically the butler of the FYC. If the other members are hungry, I have to bring food to the meeting. If they are thirsty I have to make the tea/coffee. I also bring all the beers. Due to this I’m very often at GEWIS, because who else will take care of them? You will also see me a lot at the borrels. I looooveeee beer. I will use this all the time as an excuse to lose at beerpong. Chugging beer is just so much fun, and I don’t want to flex or anything but I’m veryyyy good at it as well... Therefore you may always challenge me in a chugging contest!
                         XOXO Stijn
-                    </template>
-                </Member>
-
-                <Member name="Willem Schinck" function="Secretary" :des-count="props.desCounts['Willem Schinck'] ?? 0" image="https://images.gewis.nl/c3/fbbfa02b57305da091e882deb000316154dede.jpeg?w=1920&h=1278&fm=webp&q=80&s=4026bbc5e6ea8c3922f13725261c8050">
-                    <template #text>
-                        Hello, I am Willem, but most people call me WUM, the secretary of 50/50. That means I write all the emails and if nobody is late I need to make the minutes. I am originally from Limburg, but unfortunately I lost my accent so I speak mostly ABN. I now live in Nuenen with my girlfriend Femke and my best friend Lars. My music preference is Rammstein and other musicians who wear black. Even though I am the oldest, my height doesn’t represent this. I make a lot of jokes about Hiske’s accent and I feel really bad about these. So if you hear me make these kind of jokes, please tell me to stop. I hope to see you at the weekly borrels! Goodbye
                     </template>
                 </Member>
 

@@ -25,23 +25,12 @@
                             Home
                         </inertia-link>
 
-<!--                        <DropdownMenu>-->
-<!--                            <template #toggle="{ toggle }">-->
-<!--                                <button @click="toggle" class="text-sm text-gray-300 hover:text-gray-200 hover:bg-gray-800 px-3 py-2 rounded-lg transition">-->
-<!--                                    Committee-->
-
-<!--                                    <font-awesome-icon icon="fas fa-chevron-down" class="w-4 h-4 inline-flex ml-1"/>-->
-<!--                                </button>-->
-<!--                            </template>-->
-
-<!--                            <DropdownItem href="/committee/about">-->
-<!--                                About Us-->
-<!--                            </DropdownItem>-->
-
-<!--                            <DropdownItem href="/committee/members">-->
-<!--                                Members-->
-<!--                            </DropdownItem>-->
-<!--                        </DropdownMenu>-->
+                        <inertia-link
+                            href="/about-us"
+                            class="text-sm text-gray-300 hover:text-gray-200 hover:bg-gray-800 px-3 py-2 rounded-lg transition"
+                        >
+                            About Us
+                        </inertia-link>
 
                         <inertia-link
                             href="/quote-quiz"
@@ -83,16 +72,12 @@
                                 Home
                             </inertia-link>
 
-                            <inertia-link href="/committee/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-gray-200">
+                            <inertia-link href="/about-us" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-gray-200">
                                 About Us
                             </inertia-link>
 
-                            <inertia-link href="/committee/members" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-gray-200">
-                                Members
-                            </inertia-link>
-
-                            <inertia-link href="/news" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-gray-200">
-                                News
+                            <inertia-link href="/quote-quiz" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-gray-200">
+                                Quote Quiz
                             </inertia-link>
                         </div>
                     </div>
