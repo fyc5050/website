@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/js/app.ts',
                 'resources/css/filament.css',
             ],
+
             refresh: true,
         }),
 

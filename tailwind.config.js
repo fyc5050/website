@@ -38,17 +38,6 @@ module.exports = {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
                 display: ['Lexend', ...defaultTheme.fontFamily.sans],
             },
-
-            animation: {
-                hover: 'hover 2s linear infinite',
-            },
-
-            keyframes: {
-                hover: {
-                    '0%, 100%': {transform: 'translateY(0)'},
-                    '50%': {transform: 'translateY(-10px)'},
-                },
-            },
         },
     },
 

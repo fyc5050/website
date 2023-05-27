@@ -21,10 +21,7 @@ class ZeurMeister extends Model
 
     public static function current(): ?ZeurMeister
     {
-        $currentDate = now();
-
-        return static::where('starts_at', '<=', $currentDate)
-            ->where('ends_at', '>=', $currentDate)
+        return static::orderByDesc('starts_at')
             ->first();
     }
 }

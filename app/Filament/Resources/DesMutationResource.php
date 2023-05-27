@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources;
 
+use App\Actions\ApproveDesMutation;
+use App\Actions\DeclineDesMutation;
 use App\Enums\DesMutationState;
 use App\Filament\Resources\DesMutationResource\Pages;
 use App\Models\DesMutation;
@@ -59,25 +61,21 @@ class DesMutationResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
 
+                // Approve action
                 Tables\Actions\Action::make('approve')
-                    ->visible(fn (DesMutation $record) => Auth::user()->is_des_manager && $record->state === DesMutationState::PENDING)
+                    ->visible(fn (DesMutation $record)
+                                => Auth::user()->is_des_manager && $record->state === DesMutationState::PENDING)
                     ->color('success')
-                    ->action(static function (DesMutation $record) {
-                        $user = Auth::user();
-                        if (!$user->is_des_manager) return;
+                    ->action(static fn (DesMutation $record)
+                                => (new ApproveDesMutation($record, Auth::user()))->execute()),
 
-                        $record->approve($user);
-                    }),
-
+                // Decline action
                 Tables\Actions\Action::make('decline')
-                    ->visible(fn (DesMutation $record) => Auth::user()->is_des_manager && $record->state === DesMutationState::PENDING)
+                    ->visible(fn (DesMutation $record)
+                                => Auth::user()->is_des_manager && $record->state === DesMutationState::PENDING)
                     ->color('danger')
-                    ->action(static function (DesMutation $record) {
-                        $user = Auth::user();
-                        if (!$user->is_des_manager) return;
-
-                        $record->decline($user);
-                    }),
+                    ->action(static fn (DesMutation $record)
+                                => (new DeclineDesMutation($record, Auth::user()))->execute()),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
