@@ -2,7 +2,7 @@
     <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
         <img class="md:col-span-3 bg-white rounded-md w-full h-auto" :src="props.image"/>
 
-        <div class="md:col-span-3" :class="props.reverseLayout && '-order-1'">
+        <div class="md:col-span-3" :class="props.reverseLayout && 'md:-order-1'">
             <div>
                 <h4 class="text-white font-bold text-2xl flex">
                     {{ props.name }}
