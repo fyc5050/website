@@ -38,7 +38,7 @@
                     </template>
                 </Member>
 
-                <Member name="Mex de Loo" function="Webmeister" :des-count="props.desCounts['Mex de Loo'] ?? 0" image="https://images.gewis.nl/b6/ce5e3fcc13fe7477e2d012d442fb530709c8fb.jpeg?w=320&h=213&fm=webp&q=80&s=1dd0cb7f66456697f1833c95dbb90928">
+                <Member name="Mex de Loo" function="Webmeister" :des-count="props.desCounts['Mex de Loo'] ?? 0" image="https://images.gewis.nl/0d/1ba18a91512b1128ce7ece1c65b9d3b7e03e15.jpeg?w=1920&h=1278&fm=webp&q=80&s=ef28e0c27e000f97435ed1450a4c126d">
                     <template #text>
                         I am 5050’s one and only webmeister alongside Sandor. Which means I’m in charge of designing and running our amazing website on which you are reading this. The creation of this website was very easy and not at all time consuming, so that’s really good. If you have any queries about the website just let me know. Anyways enough about the website, I study computer science, which I only choose because I thought applied math would be too hard for me. I am from Limburg, so unfortunately I don’t understand people half the time. I only recently turned 17, so for all the ladies you have to wait another year 😉. Because I am 17, I have never drank any alcohol, but in a years’ time I get to try it for the first time. I am really excited about that and can’t wait to try it! Much love 5050’s webmeister.
                     </template>
