@@ -47,7 +47,12 @@ class DesMutationResource extends Resource
 
                 Tables\Columns\TextColumn::make('statusUpdatedBy.name')
                     ->default('-'),
+
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable(),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 Tables\Filters\SelectFilter::make('state')
                     ->options([
