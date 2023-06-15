@@ -72,7 +72,7 @@ class UserResource extends Resource
                             ->required(),
                     ])
                     ->action(static fn (User $record, array $data)
-                                => new CreateDesMutation($record, Auth::user(), $data['mutation'])),
+                                => (new CreateDesMutation($record, Auth::user(), $data['mutation']))->execute()),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
