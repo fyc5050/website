@@ -49,8 +49,10 @@ class DesMutationResource extends Resource
                     ->default('-'),
 
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
+                    ->dateTime()
+                    ->sortable(),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 Tables\Filters\SelectFilter::make('state')
                     ->options([
