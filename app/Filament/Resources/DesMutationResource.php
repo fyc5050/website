@@ -39,7 +39,7 @@ class DesMutationResource extends Resource
                         'success' => DesMutationState::APPROVED->value,
                     ]),
 
-                Tables\Columns\TextColumn::make('count_after')
+                Tables\Columns\BadgeColumn::make('count_after')
                     ->default('-'),
 
                 Tables\Columns\TextColumn::make('createdBy.name')
@@ -49,10 +49,8 @@ class DesMutationResource extends Resource
                     ->default('-'),
 
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable(),
+                    ->dateTime(),
             ])
-            ->defaultSort('created_at', 'desc')
             ->filters([
                 Tables\Filters\SelectFilter::make('state')
                     ->options([
@@ -63,9 +61,6 @@ class DesMutationResource extends Resource
                     ->multiple(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-
                 // Approve action
                 Tables\Actions\Action::make('approve')
                     ->visible(fn (DesMutation $record)
@@ -86,6 +81,7 @@ class DesMutationResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
+
 
     public static function getPages(): array
     {
