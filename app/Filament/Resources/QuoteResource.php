@@ -44,8 +44,11 @@ class QuoteResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('content'),
-                Tables\Columns\TextColumn::make('said_by'),
+                Tables\Columns\TextColumn::make('content')
+                    ->searchable(),
+
+                Tables\Columns\TextColumn::make('said_by')
+                    ->searchable(),
 
                 Tables\Columns\IconColumn::make('is_hidden')
                     ->boolean()
