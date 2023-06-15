@@ -47,7 +47,8 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('email'),
 
-                Tables\Columns\BadgeColumn::make('des_count'),
+                Tables\Columns\BadgeColumn::make('des_count')
+                    ->sortable(),
 
                 Tables\Columns\IconColumn::make('is_admin')
                     ->boolean()
